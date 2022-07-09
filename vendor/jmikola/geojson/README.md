@@ -5,13 +5,13 @@
 [![Code Coverage](https://scrutinizer-ci.com/g/jmikola/geojson/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/jmikola/geojson/?branch=master)
 
 This library implements the
-[GeoJSON format specification](http://www.geojson.org/geojson-spec.html).
+[GeoJSON format specification](https://geojson.org/).
 
 ## Installation
 
 The library is published as a
 [package](https://packagist.org/packages/jmikola/geojson) and is installable via
-[Composer](http://getcomposer.org/):
+[Composer](https://getcomposer.org/):
 
 ```
 $ composer require "jmikola/geojson=^1.0"

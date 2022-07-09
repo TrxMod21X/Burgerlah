@@ -7,5 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
-    'GeoJson\\' => array($vendorDir . '/jmikola/geojson/src'),
 );
