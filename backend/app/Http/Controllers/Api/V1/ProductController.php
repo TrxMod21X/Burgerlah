@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
@@ -7,69 +8,70 @@ use App\Models\Food;
 
 class ProductController extends Controller
 {
-        
-    public function get_popular_products(Request $request){
-  
-        $list = Food::where('type_id', 2)->take(10)->get();
-        
-                foreach ($list as $item){
-                    $item['description']=strip_tags($item['description']);
-                    $item['description']=$Content = preg_replace("/&#?[a-z0-9]+;/i"," ",$item['description']); 
-                    unset($item['selected_people']);
-                    unset($item['people']);
-                }
-                
-                 $data =  [
-                    'total_size' => $list->count(),
-                    'type_id' => 2,
-                    'offset' => 0,
-                    'products' => $list
-                ];
-                
-         return response()->json($data, 200);
- 
+
+    public function get_popular_products(Request $request)
+    {
+
+        $list = Food::where('type_id', 2)->take(10)->orderBy('created_at', 'DESC')->get();
+
+        foreach ($list as $item) {
+            $item['description'] = strip_tags($item['description']);
+            $item['description'] = $Content = preg_replace("/&#?[a-z0-9]+;/i", " ", $item['description']);
+            unset($item['selected_people']);
+            unset($item['people']);
+        }
+
+        $data =  [
+            'total_size' => $list->count(),
+            'type_id' => 2,
+            'offset' => 0,
+            'products' => $list
+        ];
+
+        return response()->json($data, 200);
     }
 
-        public function get_recommended_products(Request $request){
-        $list = Food::where('type_id', 3)->take(10)->get();
-        
-                foreach ($list as $item){
-                    $item['description']=strip_tags($item['description']);
-                    $item['description']=$Content = preg_replace("/&#?[a-z0-9]+;/i"," ",$item['description']); 
-                    unset($item['selected_people']);
-                    unset($item['people']);
-                }
-                
-                 $data =  [
-                    'total_size' => $list->count(),
-                    'type_id' => 3,
-                    'offset' => 0,
-                    'products' => $list
-                ];
-                
-         return response()->json($data, 200);
-    }
-    
+    public function get_recommended_products(Request $request)
+    {
+        $list = Food::where('type_id', 3)->take(10)->orderBy('created_at', 'DESC')->get();
 
-       public function get_foods_products(Request $request){
-  
+        foreach ($list as $item) {
+            $item['description'] = strip_tags($item['description']);
+            $item['description'] = $Content = preg_replace("/&#?[a-z0-9]+;/i", " ", $item['description']);
+            unset($item['selected_people']);
+            unset($item['people']);
+        }
+
+        $data =  [
+            'total_size' => $list->count(),
+            'type_id' => 3,
+            'offset' => 0,
+            'products' => $list
+        ];
+
+        return response()->json($data, 200);
+    }
+
+
+    public function get_foods_products(Request $request)
+    {
+
         $list = Food::take(10)->get();
         // $list = Food::where('type_id', 1)->take(10)->get();
-      
-        foreach ($list as $item){
-            $item['description']=strip_tags($item['description']);
-            $item['description']=$Content = preg_replace("/&#?[a-z0-9]+;/i"," ",$item['description']); 
+
+        foreach ($list as $item) {
+            $item['description'] = strip_tags($item['description']);
+            $item['description'] = $Content = preg_replace("/&#?[a-z0-9]+;/i", " ", $item['description']);
         }
-        
-         $data =  [
+
+        $data =  [
             'total_size' => $list->count(),
             'type_id' => 1,
             // 'limit' => 5,
             'offset' => 0,
             'products' => $list
         ];
-         return response()->json($data, 200);
+        return response()->json($data, 200);
         // return json_decode($list);
     }
-
 }

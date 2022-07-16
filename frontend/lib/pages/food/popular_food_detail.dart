@@ -19,7 +19,7 @@ class PopularFoodDetail extends StatelessWidget {
         .initProduct(product, Get.find<CartController>());
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.mainBlackColor,
       body: Stack(
         children: [
           /// BACKGROUND IMAGE
@@ -115,7 +115,7 @@ class PopularFoodDetail extends StatelessWidget {
                   right: Dimensions.width20,
                   top: Dimensions.height20),
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: AppColors.mainBlackColor,
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(Dimensions.radius20),
                   topLeft: Radius.circular(Dimensions.radius20),
@@ -154,7 +154,7 @@ class PopularFoodDetail extends StatelessWidget {
             right: Dimensions.width20,
           ),
           decoration: BoxDecoration(
-            color: AppColors.buttonBackgroundColor,
+            color: Colors.orange,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(Dimensions.radius20 * 2),
               topRight: Radius.circular(Dimensions.radius20 * 2),
@@ -171,7 +171,7 @@ class PopularFoodDetail extends StatelessWidget {
                   right: Dimensions.width20,
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: AppColors.mainBlackColor,
                   borderRadius: BorderRadius.circular(Dimensions.radius20),
                 ),
                 child: Row(children: [
@@ -198,7 +198,7 @@ class PopularFoodDetail extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(Dimensions.radius20),
-                    color: AppColors.mainColor,
+                    color: AppColors.mainBlackColor,
                   ),
                   child: BigText(
                     text: 'Rp.${product.price!} | Add to cart',

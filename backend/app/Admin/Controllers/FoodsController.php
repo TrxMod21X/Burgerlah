@@ -31,6 +31,7 @@ class FoodsController extends AdminController
     {
         $grid = new Grid(new Food());
 
+        $grid->model()->latest();
         $grid->column('id', __('Id'));
         $grid->column('name', __('Name'));
          $grid->column('FoodType.title', __('Category'));
