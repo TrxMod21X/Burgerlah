@@ -29,8 +29,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: AppColors.mainColor,
-        unselectedItemColor: Colors.amberAccent,
+        selectedItemColor: Colors.orange,
+        unselectedItemColor: Colors.grey,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         selectedFontSize: 0.0,
@@ -39,18 +39,22 @@ class _HomePageState extends State<HomePage> {
         onTap: onTopNav,
         items: const [
           BottomNavigationBarItem(
+            backgroundColor: Colors.black87,
             icon: Icon(Icons.home_outlined),
             label: 'Home',
           ),
           BottomNavigationBarItem(
+            backgroundColor: Colors.black87,
             icon: Icon(Icons.archive),
             label: 'History',
           ),
           BottomNavigationBarItem(
+            backgroundColor: Colors.black87,
             icon: Icon(Icons.shopping_cart),
             label: 'Cart',
           ),
           BottomNavigationBarItem(
+            backgroundColor: Colors.black87,
             icon: Icon(Icons.person),
             label: 'Me',
           ),

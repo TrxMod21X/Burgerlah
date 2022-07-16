@@ -6,6 +6,7 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.mainBlackColor,
       body: Stack(
         children: [
           Positioned(
@@ -19,8 +20,8 @@ class CartPage extends StatelessWidget {
                   onTap: () => Get.back(),
                   child: AppIcon(
                     icon: Icons.arrow_back_ios,
-                    iconColor: Colors.white,
-                    backgroundColor: AppColors.mainColor,
+                    backgroundColor: Colors.orange,
+                    iconColor: AppColors.mainBlackColor,
                     iconSize: Dimensions.icon24,
                   ),
                 ),
@@ -29,15 +30,15 @@ class CartPage extends StatelessWidget {
                   onTap: () => Get.toNamed(RouteHelper.getInitial()),
                   child: AppIcon(
                     icon: Icons.home_outlined,
-                    iconColor: Colors.white,
-                    backgroundColor: AppColors.mainColor,
+                    backgroundColor: Colors.orange,
+                    iconColor: AppColors.mainBlackColor,
                     iconSize: Dimensions.icon24,
                   ),
                 ),
                 AppIcon(
                   icon: Icons.shopping_cart,
-                  iconColor: Colors.white,
-                  backgroundColor: AppColors.mainColor,
+                  backgroundColor: Colors.orange,
+                  iconColor: AppColors.mainBlackColor,
                   iconSize: Dimensions.icon24,
                 ),
               ],
@@ -292,7 +293,6 @@ class CartPage extends StatelessWidget {
                                               BigText(
                                                 text:
                                                     '${controller.getItems[index].name}',
-                                                color: Colors.black54,
                                               ),
                                               SmallText(text: 'Spicy'),
                                               Row(
@@ -395,7 +395,7 @@ class CartPage extends StatelessWidget {
             right: Dimensions.width20,
           ),
           decoration: BoxDecoration(
-            color: AppColors.buttonBackgroundColor,
+            color: Colors.orange,
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(Dimensions.radius20 * 2),
               topRight: Radius.circular(Dimensions.radius20 * 2),
@@ -413,7 +413,7 @@ class CartPage extends StatelessWidget {
                         right: Dimensions.width20,
                       ),
                       decoration: BoxDecoration(
-                        color: Colors.white,
+                        color: AppColors.mainBlackColor,
                         borderRadius:
                             BorderRadius.circular(Dimensions.radius20),
                       ),
@@ -447,7 +447,7 @@ class CartPage extends StatelessWidget {
                         decoration: BoxDecoration(
                           borderRadius:
                               BorderRadius.circular(Dimensions.radius20),
-                          color: AppColors.mainColor,
+                          color: AppColors.mainBlackColor,
                         ),
                         child: BigText(
                           text: 'Checkout',

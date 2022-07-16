@@ -44,11 +44,12 @@ class CartHistory extends StatelessWidget {
     }
 
     return Scaffold(
+      backgroundColor: AppColors.mainBlackColor,
       body: Column(
         children: [
           /// APP BAR
           Container(
-            color: AppColors.mainColor,
+            color: Colors.orange,
             width: double.maxFinite,
             height: Dimensions.height20 * 5,
             padding: EdgeInsets.only(top: Dimensions.height45),
@@ -60,8 +61,8 @@ class CartHistory extends StatelessWidget {
                   onTap: () {},
                   child: const AppIcon(
                     icon: Icons.shopping_cart_outlined,
-                    iconColor: AppColors.mainColor,
-                    backgroundColor: AppColors.yellowColor,
+                    iconColor: Colors.orange,
+                    backgroundColor: AppColors.mainBlackColor,
                   ),
                 ),
               ],
@@ -94,7 +95,7 @@ class CartHistory extends StatelessWidget {
                                     /// DATE ITEM
                                     timeWidget(listCounter),
                                     SizedBox(height: Dimensions.height10),
-
+                                    
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,

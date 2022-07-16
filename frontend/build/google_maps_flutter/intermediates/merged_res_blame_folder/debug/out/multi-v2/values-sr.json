@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/trxmod21x/Documents/TrxMod21X/Trx-Self-Projects/food_delivery/flutter-shopping-app/front-end/build/google_maps_flutter/intermediates/incremental/mergeDebugResources/merged.dir/values-sr/values-sr.xml",
+            "outputFile": "/home/trxmod21x/Documents/TrxMod21X/Trx-Self-Projects/food_delivery/flutter-shopping-app/Burgerlah/frontend/build/google_maps_flutter/intermediates/res/merged/debug/values-sr/values-sr.xml",
             "map": [
                 {
                     "source": "/home/trxmod21x/.gradle/caches/transforms-2/files-2.1/122df2e57d294d1a53db26bbc3b813c1/core-1.6.0/res/values-sr/values-sr.xml",
@@ -57,7 +57,7 @@
             ]
         },
         {
-            "outputFile": "/home/trxmod21x/Documents/TrxMod21X/Trx-Self-Projects/food_delivery/flutter-shopping-app/front-end/build/google_maps_flutter/intermediates/res/merged/debug/values-sr/values-sr.xml",
+            "outputFile": "/home/trxmod21x/Documents/TrxMod21X/Trx-Self-Projects/food_delivery/flutter-shopping-app/Burgerlah/frontend/build/google_maps_flutter/intermediates/incremental/mergeDebugResources/merged.dir/values-sr/values-sr.xml",
             "map": [
                 {
                     "source": "/home/trxmod21x/.gradle/caches/transforms-2/files-2.1/122df2e57d294d1a53db26bbc3b813c1/core-1.6.0/res/values-sr/values-sr.xml",

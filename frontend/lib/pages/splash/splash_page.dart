@@ -40,7 +40,8 @@ class _SplashScreenState extends State<SplashScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       // backgroundColor: const Color(0xFFECB50E),
-      backgroundColor: AppColors.mainColor,
+      // backgroundColor: AppColors.mainColor,
+      backgroundColor: const Color(0xFF000000),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -48,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen>
             scale: animation,
             child: Center(
               child: Image.asset(
-                'assets/images/store1.png',
+                'assets/images/splash.png',
                 width: 180,
               ),
             ),

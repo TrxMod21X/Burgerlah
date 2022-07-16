@@ -16,10 +16,11 @@ class _MainFoodPageState extends State<MainFoodPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.mainBlackColor,
       body: LiquidPullToRefresh(
         onRefresh: _onRefresh,
-        backgroundColor: AppColors.yellowColor,
-        color: AppColors.mainColor,
+        backgroundColor: AppColors.mainBlackColor,
+        color: Colors.orange,
         child: Column(
           children: [
             /// HEADER
@@ -35,14 +36,14 @@ class _MainFoodPageState extends State<MainFoodPage> {
                     children: [
                       BigText(
                         text: 'Indonesia',
-                        color: AppColors.mainColor,
+                        color: AppColors.textColor,
                         size: Dimensions.font30,
                       ),
                       Row(
                         children: [
                           SmallText(
                             text: 'Banda Aceh',
-                            color: Colors.black54,
+                            color: AppColors.textColor,
                           ),
                           const Icon(Icons.arrow_drop_down_rounded),
                         ],
@@ -55,13 +56,13 @@ class _MainFoodPageState extends State<MainFoodPage> {
                       height: Dimensions.height45,
                       child: Icon(
                         Icons.search,
-                        color: Colors.white,
+                        color: AppColors.mainBlackColor,
                         size: Dimensions.icon24,
                       ),
                       decoration: BoxDecoration(
                         borderRadius:
                             BorderRadius.circular(Dimensions.radius15),
-                        color: AppColors.mainColor,
+                        color: Colors.orange,
                       ),
                     ),
                   )

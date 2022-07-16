@@ -47,7 +47,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     },
                   ),
                 )
-              : const CircularProgressIndicator(color: AppColors.mainColor),
+              : const CircularProgressIndicator(color: Colors.orange),
         ),
 
         /// DOTS SECTION
@@ -58,7 +58,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 : controller.popularProductList.length,
             position: _currPageValue!,
             decorator: DotsDecorator(
-              activeColor: AppColors.mainColor,
+              activeColor: Colors.orange,
               size: const Size.square(9),
               activeSize: const Size(18, 9),
               activeShape: RoundedRectangleBorder(
@@ -135,7 +135,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                 bottomRight:
                                     Radius.circular(Dimensions.radius20),
                               ),
-                              color: Colors.white,
+                              color: Colors.black26,
                             ),
                             child: Padding(
                               padding: EdgeInsets.only(
@@ -188,7 +188,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                     ),
                   ),
                 )
-              : const CircularProgressIndicator(color: AppColors.mainColor),
+              : const CircularProgressIndicator(color: Colors.orange),
         )
       ],
     );
@@ -253,19 +253,19 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Dimensions.radius20),
-                color: Colors.white,
+                color: AppColors.mainBlackColor,
                 boxShadow: const [
                   BoxShadow(
-                    color: Color(0xFFe8e8e8),
+                    color: Colors.orange,
                     blurRadius: 5,
                     offset: Offset(0, 5),
                   ),
                   BoxShadow(
-                    color: Colors.white,
+                    color: Colors.orange,
                     offset: Offset(-5, 0),
                   ),
                   BoxShadow(
-                    color: Colors.white,
+                    color: Colors.orange,
                     offset: Offset(5, 0),
                   )
                 ],
