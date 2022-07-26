@@ -6,7 +6,7 @@ class AppConstant {
 
   /// BASE URL
   // static const String baseUrl = 'https://aceh-foodmarket-app.masuk.id';
-  static const String baseUrl = 'https://6e78-2001-448a-11a0-1038-5be-a1c9-af6d-9383.ap.ngrok.io';
+  static const String baseUrl = 'https://8cc7-2001-448a-11af-1986-8607-c14a-b17d-1ab5.ap.ngrok.io';
   // static const String baseUrl = 'http://127.0.0.1:8000';
 
   /// PRODUCTS ENDPOINT
@@ -21,6 +21,8 @@ class AppConstant {
 
   /// LOCATION ENDPOINT
   static const String userAddress = 'user_address';
+  static const String addUserAddress = '/api/v1/customer/address/add';
+  static const String addressListURI = '/api/v1/customer/address/list';
   static const String geocodeUri = '/api/v1/config/geocode-api';
 
   static const String token = '';

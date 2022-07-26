@@ -37,10 +37,11 @@ class ApiClient extends GetConnect implements GetxService {
   }
 
   Future<Response> postData(String uri, dynamic body) async {
+    log('dari post data api client');
     log(body.toString());
     try {
       Response response = await post(uri, body, headers: _mainHeaders);
-      log(response.toString());
+      // log(response.toString());
       return response;
     } catch (e) {
       log(e.toString());

@@ -11,15 +11,19 @@ class ProfilePage extends StatelessWidget {
     }
 
     return Scaffold(
+      backgroundColor: AppColors.mainBlackColor,
+
       /// APP BAR
-      appBar: AppBar(
-        backgroundColor: AppColors.mainColor,
-        title: BigText(
-          text: 'Profile',
-          size: Dimensions.font12 * 2,
-          color: Colors.white,
-        ),
-      ),
+      appBar: _userLoggedIn
+          ? AppBar(
+              backgroundColor: Colors.orange,
+              title: BigText(
+                text: 'Profile',
+                size: Dimensions.font12 * 2,
+                color: Colors.white,
+              ),
+            )
+          : null,
 
       /// BODY
       body: GetBuilder<UserController>(builder: (controller) {
@@ -36,10 +40,10 @@ class ProfilePage extends StatelessWidget {
                         /// PROFILE IMAGE
                         AppIcon(
                           icon: Icons.person,
-                          iconColor: Colors.white,
+                          iconColor: AppColors.mainBlackColor,
                           iconSize: Dimensions.icon15 * 5,
                           size: Dimensions.width10 * 15,
-                          backgroundColor: AppColors.mainColor,
+                          backgroundColor: Colors.orange,
                         ),
                         SizedBox(height: Dimensions.height30),
                         Expanded(
@@ -50,10 +54,10 @@ class ProfilePage extends StatelessWidget {
                                 ProfileWidgets(
                                   appIcon: AppIcon(
                                     icon: Icons.person,
-                                    iconColor: Colors.white,
+                                    iconColor: Colors.orange,
                                     iconSize: Dimensions.height10 * 5 / 2,
                                     size: Dimensions.width10 * 5,
-                                    backgroundColor: AppColors.mainColor,
+                                    backgroundColor: AppColors.mainBlackColor,
                                   ),
                                   bigText:
                                       BigText(text: controller.userModel!.name),
@@ -90,18 +94,51 @@ class ProfilePage extends StatelessWidget {
                                 SizedBox(height: Dimensions.height20),
 
                                 /// PROFILE ADDRESS
-                                ProfileWidgets(
-                                  appIcon: AppIcon(
-                                    icon: Icons.location_on,
-                                    iconColor: Colors.white,
-                                    iconSize: Dimensions.height10 * 5 / 2,
-                                    size: Dimensions.width10 * 5,
-                                    backgroundColor: AppColors.yellowColor,
-                                  ),
-                                  bigText: BigText(
-                                    text: 'Fill in your address',
-                                  ),
-                                ),
+                                GetBuilder<LocationController>(
+                                    builder: (controller) {
+                                  if (_userLoggedIn &&
+                                      controller.addressList.isEmpty) {
+                                    return GestureDetector(
+                                      onTap: () {
+                                        Get.offNamed(
+                                            RouteHelper.getAddressPage());
+                                      },
+                                      child: ProfileWidgets(
+                                        appIcon: AppIcon(
+                                          icon: Icons.location_on,
+                                          iconColor: Colors.white,
+                                          iconSize: Dimensions.height10 * 5 / 2,
+                                          size: Dimensions.width10 * 5,
+                                          backgroundColor:
+                                              AppColors.yellowColor,
+                                        ),
+                                        bigText: BigText(
+                                          text: 'Fill in your address',
+                                        ),
+                                      ),
+                                    );
+                                  } else {
+                                    return GestureDetector(
+                                      onTap: () {
+                                        Get.offNamed(
+                                            RouteHelper.getAddressPage());
+                                      },
+                                      child: ProfileWidgets(
+                                        appIcon: AppIcon(
+                                          icon: Icons.location_on,
+                                          iconColor: Colors.white,
+                                          iconSize: Dimensions.height10 * 5 / 2,
+                                          size: Dimensions.width10 * 5,
+                                          backgroundColor:
+                                              AppColors.yellowColor,
+                                        ),
+                                        bigText: BigText(
+                                          text: 'Your address',
+                                        ),
+                                      ),
+                                    );
+                                  }
+                                }),
                                 SizedBox(height: Dimensions.height20),
 
                                 /// PROFILE MESSAGES
@@ -158,7 +195,7 @@ class ProfilePage extends StatelessWidget {
                     children: [
                       Container(
                         width: double.maxFinite,
-                        height: Dimensions.height20 * 8,
+                        height: Dimensions.height20 * 20,
                         margin: EdgeInsets.only(
                             left: Dimensions.width20,
                             right: Dimensions.width20),
@@ -166,8 +203,8 @@ class ProfilePage extends StatelessWidget {
                           borderRadius:
                               BorderRadius.circular(Dimensions.radius20),
                           image: const DecorationImage(
-                            fit: BoxFit.cover,
-                            image: AssetImage('assets/images/app-icon.png'),
+                            fit: BoxFit.contain,
+                            image: AssetImage('assets/images/splash.png'),
                           ),
                         ),
                       ),
@@ -180,7 +217,7 @@ class ProfilePage extends StatelessWidget {
                               left: Dimensions.width20,
                               right: Dimensions.width20),
                           decoration: BoxDecoration(
-                            color: AppColors.mainColor,
+                            color: Colors.orange,
                             borderRadius:
                                 BorderRadius.circular(Dimensions.radius20),
                           ),
