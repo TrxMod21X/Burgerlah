@@ -86,7 +86,7 @@ class SignUpPage extends StatelessWidget {
 
                       /// EMAIL FIELD
                       AppTextField(
-                        emailController: emailController,
+                        textController: emailController,
                         hint: 'Email',
                         icon: Icons.email,
                         textInputType: TextInputType.emailAddress,
@@ -95,7 +95,7 @@ class SignUpPage extends StatelessWidget {
 
                       /// PASSWORD FIELD
                       AppTextField(
-                        emailController: passwordController,
+                        textController: passwordController,
                         hint: 'Password',
                         icon: Icons.password_sharp,
                         obscureText: true,
@@ -104,7 +104,7 @@ class SignUpPage extends StatelessWidget {
 
                       /// PHONE FIELD
                       AppTextField(
-                        emailController: phoneController,
+                        textController: phoneController,
                         hint: 'Phone',
                         icon: Icons.phone,
                         textInputType: TextInputType.number,
@@ -113,7 +113,7 @@ class SignUpPage extends StatelessWidget {
 
                       /// NAME FIELD
                       AppTextField(
-                        emailController: nameController,
+                        textController: nameController,
                         hint: 'Name',
                         icon: Icons.person,
                       ),

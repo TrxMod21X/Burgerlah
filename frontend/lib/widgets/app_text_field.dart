@@ -6,17 +6,17 @@ class AppTextField extends StatelessWidget {
   final IconData icon;
   final bool obscureText;
   final TextInputType textInputType;
+  final TextEditingController textController;
   
   const AppTextField({
     Key? key,
-    required this.emailController,
+    required this.textController,
     required this.hint,
     required this.icon,
     this.obscureText = false,
     this.textInputType = TextInputType.text,
   }) : super(key: key);
 
-  final TextEditingController emailController;
 
   @override
   Widget build(BuildContext context) {
@@ -37,13 +37,13 @@ class AppTextField extends StatelessWidget {
       ),
       child: TextField(
         keyboardType: textInputType,
-        controller: emailController,
+        controller: textController,
         obscureText: obscureText,
         decoration: InputDecoration(
           hintText: hint,
           prefixIcon:  Icon(
             icon,
-            color: AppColors.mainColor,
+            color: Colors.orange,
           ),
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(Dimensions.radius15),

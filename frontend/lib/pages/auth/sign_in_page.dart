@@ -86,7 +86,7 @@ class SignInPage extends StatelessWidget {
 
                       /// EMAIL FIELD
                       AppTextField(
-                        emailController: emailController,
+                        textController: emailController,
                         hint: 'Email',
                         icon: Icons.email,
                       ),
@@ -94,7 +94,7 @@ class SignInPage extends StatelessWidget {
 
                       /// PASSWORD FIELD
                       AppTextField(
-                        emailController: passwordController,
+                        textController: passwordController,
                         hint: 'Password',
                         icon: Icons.password_sharp,
                         obscureText: true,

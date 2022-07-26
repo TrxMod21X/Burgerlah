@@ -114,7 +114,7 @@ class CartPage extends StatelessWidget {
                               ),
                               SizedBox(width: Dimensions.width10),
                               Expanded(
-                                child: Container(
+                                child: SizedBox(
                                   height: Dimensions.height20 * 5,
                                   child: Column(
                                     mainAxisAlignment:
@@ -145,7 +145,7 @@ class CartPage extends StatelessWidget {
                                               right: Dimensions.width10,
                                             ),
                                             decoration: BoxDecoration(
-                                              color: Colors.white,
+                                              color: Colors.black,
                                               borderRadius:
                                                   BorderRadius.circular(
                                                       Dimensions.radius20),
@@ -190,6 +190,7 @@ class CartPage extends StatelessWidget {
                                               ],
                                             ),
                                           ),
+                                       
                                         ],
                                       ),
                                     ],
@@ -314,7 +315,7 @@ class CartPage extends StatelessWidget {
                                                       right: Dimensions.width10,
                                                     ),
                                                     decoration: BoxDecoration(
-                                                      color: Colors.white,
+                                                      color: Colors.orange,
                                                       borderRadius:
                                                           BorderRadius.circular(
                                                               Dimensions
@@ -334,7 +335,7 @@ class CartPage extends StatelessWidget {
                                                             child: const Icon(
                                                                 Icons.remove,
                                                                 color: AppColors
-                                                                    .signColor)),
+                                                                    .mainBlackColor)),
                                                         SizedBox(
                                                             width: Dimensions
                                                                     .width10 /
@@ -360,7 +361,7 @@ class CartPage extends StatelessWidget {
                                                           child: const Icon(
                                                               Icons.add,
                                                               color: AppColors
-                                                                  .signColor),
+                                                                  .mainBlackColor),
                                                         ),
                                                       ],
                                                     ),
@@ -432,6 +433,8 @@ class CartPage extends StatelessWidget {
                               .addressList
                               .isEmpty) {
                             Get.toNamed(RouteHelper.getAddressPage());
+                          }else {
+                            Get.offNamed(RouteHelper.getInitial());
                           }
                         } else {
                           Get.toNamed(RouteHelper.getSignInPage());

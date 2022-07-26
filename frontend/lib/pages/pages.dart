@@ -19,6 +19,8 @@ import 'package:intl/intl.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 
+import '../models/address_model.dart';
+
 part 'splash/splash_page.dart';
 
 part 'home/main_food_page.dart';

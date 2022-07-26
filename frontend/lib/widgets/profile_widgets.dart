@@ -26,7 +26,7 @@ class ProfileWidgets extends StatelessWidget {
             blurRadius: 1,
           ),
         ],
-        color: Colors.white,
+        color: Colors.orange,
       ),
       child: Row(
         children: [
