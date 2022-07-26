@@ -16,10 +16,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
     target: LatLng(5.553748073318983, 95.31733045170478),
     zoom: 14.4746,
   );
-  late LatLng _initialPosition = LatLng(
-    5.553748073318983,
-    95.31733045170478,
-  );
+  late LatLng _initialPosition = LatLng(5.553748073318983, 95.31733045170478);
 
   @override
   void initState() {
@@ -250,7 +247,7 @@ class _AddAddressPageState extends State<AddAddressPage> {
                       );
                       controller.addAddress(_addressModel).then((response) {
                         if (response.isSuccess) {
-                          Get.back();
+                          Get.toNamed(RouteHelper.getInitial());
                           Get.snackbar('Address', 'Added Successfully');
                         } else {
                           Get.snackbar('Address', 'Couldn\'t save address');
