@@ -100,7 +100,7 @@ class ProfilePage extends StatelessWidget {
                                       controller.addressList.isEmpty) {
                                     return GestureDetector(
                                       onTap: () {
-                                        Get.offNamed(
+                                        Get.toNamed(
                                             RouteHelper.getAddressPage());
                                       },
                                       child: ProfileWidgets(
@@ -120,7 +120,7 @@ class ProfilePage extends StatelessWidget {
                                   } else {
                                     return GestureDetector(
                                       onTap: () {
-                                        Get.offNamed(
+                                        Get.toNamed(
                                             RouteHelper.getAddressPage());
                                       },
                                       child: ProfileWidgets(
@@ -165,6 +165,8 @@ class ProfilePage extends StatelessWidget {
                                       Get.find<CartController>().clear();
                                       Get.find<CartController>()
                                           .clearCartHistory();
+                                      Get.find<LocationController>()
+                                          .clearAddressList();
                                       Get.offAllNamed(
                                           RouteHelper.getSplashPage());
                                     }
