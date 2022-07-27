@@ -26,6 +26,11 @@ class _AddAddressPageState extends State<AddAddressPage> {
       Get.find<UserController>().getUserInfo();
     }
     if (Get.find<LocationController>().addressList.isNotEmpty) {
+      if (Get.find<LocationController>().getUserAddressFromLocalStorage() ==
+          '') {
+        Get.find<LocationController>()
+            .saveUserAddress(Get.find<LocationController>().addressList.last);
+      }
       Get.find<LocationController>().getUserAddress();
       _cameraPosition = CameraPosition(
         target: LatLng(
@@ -100,6 +105,17 @@ class _AddAddressPageState extends State<AddAddressPage> {
                               target: _initialPosition,
                               zoom: 17,
                             ),
+                            onTap: (latlng) {
+                              Get.toNamed(
+                                RouteHelper.getPickAddressPage(),
+                                arguments: PickAddressMap(
+                                  fromSignup: false,
+                                  fromAddress: true,
+                                  googleMapController:
+                                      controller.googleMapController,
+                                ),
+                              );
+                            },
                             zoomControlsEnabled: false,
                             compassEnabled: false,
                             indoorViewEnabled: true,
