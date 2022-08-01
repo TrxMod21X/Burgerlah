@@ -39,3 +39,4 @@ part 'auth/sign_up_page.dart';
 part 'auth/sign_in_page.dart';
 
 part 'address/add_address_page.dart';
+part 'address/pick_address_map.dart';

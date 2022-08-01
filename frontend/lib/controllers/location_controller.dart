@@ -29,6 +29,7 @@ class LocationController extends GetxController implements GetxService {
   List<String> get addressTypeList => _addressTypeList;
   int get addressTypeIndex => _addressTypeIndex;
   List<AddressModel> get allAddressList => _allAddressList;
+  GoogleMapController get googleMapController => _mapController;
 
   void setMapController(GoogleMapController mapController) {
     _mapController = mapController;

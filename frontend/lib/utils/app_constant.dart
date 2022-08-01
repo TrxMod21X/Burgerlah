@@ -6,7 +6,7 @@ class AppConstant {
 
   /// BASE URL
   // static const String baseUrl = 'https://aceh-foodmarket-app.masuk.id';
-  static const String baseUrl = 'https://8cc7-2001-448a-11af-1986-8607-c14a-b17d-1ab5.ap.ngrok.io';
+  static const String baseUrl = 'https://ca42-2001-448a-11af-1986-8607-c14a-b17d-1ab5.ap.ngrok.io';
   // static const String baseUrl = 'http://127.0.0.1:8000';
 
   /// PRODUCTS ENDPOINT

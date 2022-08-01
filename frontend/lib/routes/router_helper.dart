@@ -9,6 +9,7 @@ class RouteHelper {
   static const String signUpPage = '/sign-up';
   static const String signInPage = '/sign-in';
   static const String addAddress = '/add-address';
+  static const String pickAddressMap = '/pick-address';
 
   static String getSplashPage() => splashPage;
 
@@ -26,6 +27,7 @@ class RouteHelper {
   static String getSignInPage() => '$signInPage';
 
   static String getAddressPage() => '$addAddress';
+  static String getPickAddressPage() => '$pickAddressMap';
 
   static List<GetPage> routes = [
     /// SPLASH PAGE
@@ -72,11 +74,19 @@ class RouteHelper {
           return CartPage();
         }),
 
-    /// CART PAGE
+    /// ADDRESS PAGE
     GetPage(
         name: addAddress,
         page: () {
           return AddAddressPage();
+        }),
+
+    /// PICK ADDRESS PAGE
+    GetPage(
+        name: pickAddressMap,
+        page: () {
+          PickAddressMap _pickAddress = Get.arguments;
+          return _pickAddress;
         }),
   ];
 }
