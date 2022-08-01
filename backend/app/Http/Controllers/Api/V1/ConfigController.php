@@ -44,7 +44,7 @@ class ConfigController extends Controller
             return response()->json(['errors' => Helpers::error_processor($validator)], 403);
         }
         $point = new Point($request->lat, $request->lng);
-        $zones = Zone::contains('coordinates', $point)->latest()->get();
+        // $zones = Zone::contains('coordinates', $point)->latest()->get();
         /* if(count($zones)<1)
         {
             return response()->json(['message'=>trans('messages.service_not_available_in_this_area_now')], 404);
@@ -58,5 +58,26 @@ class ConfigController extends Controller
         }*/
         //return response()->json(['message'=>trans('messages.we_are_temporarily_unavailable_in_this_area')], 403);
         return response()->json(['zone_id' => 1], 200);
+    }
+
+    public function place_api_autocomplete(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'search_text' => 'required',
+        ]);
+
+        if ($validator->errors()->count() > 0) {
+            return response()->json(
+                ['errors' => Helpers::error_processor($validator)],
+                403
+            );
+        }
+        // Google
+        // $response = Http::get('https://maps.googleapis.com/maps/api/place/autocomplete/json?input=' . $request['search_text'] . '&key=' . 'AIzaSyDiBbuIWkBA2KUyPNplqvP0VBflRUTleOo');
+
+        // Here
+        $response = Http::get('https://autocomplete.geocoder.ls.hereapi.com/6.2/suggest.json?apiKey=' . 'AfUug4pHGl5f6Pbk8zSg-wwqO65JAViFPkCJVIB-8b8' . '&query=' . $request['search_text']);
+
+        return $response->json();
     }
 }
