@@ -80,4 +80,26 @@ class ConfigController extends Controller
 
         return $response->json();
     }
+
+    public function place_api_details(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'placeid' => 'required',
+        ]);
+
+        if ($validator->errors()->count() > 0) {
+            return response()->json(
+                ['errors' => Helpers::error_processor($validator)],
+                403
+            );
+        }
+
+        // Google
+        // $response = Http::get('https://maps.googleapis.com/maps/api/place/details/json?placeid=' . $request['placeid'] . '&key=' . 'AIzaSyDiBbuIWkBA2KUyPNplqvP0VBflRUTleOo');
+
+        // Here
+        $response = Http::get('https://geocoder.ls.hereapi.com/6.2/geocode.json?locationid=' . $request['placeid'] . '&apiKey=' . 'AfUug4pHGl5f6Pbk8zSg-wwqO65JAViFPkCJVIB-8b8');
+
+        return $response->json();
+    }
 }

@@ -78,6 +78,7 @@ class CustomerController extends Controller
                 'errors' => $errors
             ], 403);
         }*/
+        
         $address = [
             'user_id' => $request->user()->id,
             'contact_person_name' => $request->contact_person_name,
