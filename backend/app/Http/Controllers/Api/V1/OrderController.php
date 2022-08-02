@@ -12,13 +12,13 @@ use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
-        public function place_order(Request $request)
+    public function place_order(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'order_amount' => 'required',
             'address' => 'required_if:order_type,delivery',
             //'longitude' => 'required_if:order_type,delivery',
-           // 'latitude' => 'required_if:order_type,delivery',
+            // 'latitude' => 'required_if:order_type,delivery',
         ]);
 
         if ($validator->fails()) {
@@ -26,8 +26,8 @@ class OrderController extends Controller
         }
 
         $address = [
-            'contact_person_name' => $request->contact_person_name?$request->contact_person_name:$request->user()->f_name.' '.$request->user()->f_name,
-            'contact_person_number' => $request->contact_person_number?$request->contact_person_number:$request->user()->phone,
+            'contact_person_name' => $request->contact_person_name ? $request->contact_person_name : $request->user()->f_name . ' ' . $request->user()->f_name,
+            'contact_person_number' => $request->contact_person_number ? $request->contact_person_number : $request->user()->phone,
             'address' => $request->address,
             'longitude' => (string)$request->longitude,
             'latitude' => (string)$request->latitude,
@@ -44,43 +44,43 @@ class OrderController extends Controller
         $order->otp = rand(1000, 9999); //checked
         $order->pending = now(); //checked
         $order->created_at = now(); //checked
-        $order->updated_at = now();//checked
-        
+        $order->updated_at = now(); //checked
+
         foreach ($request['cart'] as $c) {
-     
-                $product = Food::find($c['id']); //checked
-                if ($product) {
-            
-                    $price = $product['price']; //checked 
-                    
-                    $or_d = [
-                        'food_id' => $c['id'], //checked
-                        'food_details' => json_encode($product), 
-                        'quantity' => $c['quantity'], //checked
-                        'price' => $price, //checked
-                        'created_at' => now(), //checked
-                        'updated_at' => now(), //checked 
-                        'tax_amount' => 10.0
-                    ];
-                    
-                    $product_price += $price*$or_d['quantity'];
-                    $order_details[] = $or_d;
-                } else {
-                    return response()->json([
-                        'errors' => [
-                            ['code' => 'food', 'message' => 'not found!']
-                        ]
-                    ], 401);
-                }
+
+            $product = Food::find($c['id']); //checked
+            if ($product) {
+
+                $price = $product['price']; //checked 
+
+                $or_d = [
+                    'food_id' => $c['id'], //checked
+                    'food_details' => json_encode($product),
+                    'quantity' => $c['quantity'], //checked
+                    'price' => $price, //checked
+                    'created_at' => now(), //checked
+                    'updated_at' => now(), //checked 
+                    'tax_amount' => 10.0
+                ];
+
+                $product_price += $price * $or_d['quantity'];
+                $order_details[] = $or_d;
+            } else {
+                return response()->json([
+                    'errors' => [
+                        ['code' => 'food', 'message' => 'not found!']
+                    ]
+                ], 401);
+            }
         }
 
 
         try {
-            $save_order= $order->id;
-            $total_price= $product_price;
+            $save_order = $order->id;
+            $total_price = $product_price;
             $order->order_amount = $total_price;
             $order->save();
-            
+
             foreach ($order_details as $key => $item) {
                 $order_details[$key]['order_id'] = $order->id;
             }
@@ -94,7 +94,7 @@ class OrderController extends Controller
                 'message' => trans('messages.order_placed_successfully'),
                 'order_id' =>  $save_order,
                 'total_ammount' => $total_price,
-                
+
             ], 200);
         } catch (\Exception $e) {
             return response()->json([$e], 403);
@@ -110,11 +110,10 @@ class OrderController extends Controller
     public function get_order_list(Request $request)
     {
         $orders = Order::withCount('details')->where(['user_id' => $request->user()->id])->get()->map(function ($data) {
-            $data['delivery_address'] = $data['delivery_address']?json_decode($data['delivery_address']):$data['delivery_address'];   
+            $data['delivery_address'] = $data['delivery_address'] ? json_decode($data['delivery_address']) : $data['delivery_address'];
 
             return $data;
         });
         return response()->json($orders, 200);
     }
-    
 }

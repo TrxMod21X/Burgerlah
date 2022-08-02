@@ -4,9 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use Encore\Admin\Traits\DefaultDatetimeFormat;
+
 
 class Order extends Model
 {
+    use DefaultDatetimeFormat;
+
 
     protected $casts = [
         'order_amount' => 'float',
