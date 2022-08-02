@@ -8,6 +8,7 @@ import 'package:food_delivery/models/cart_model.dart';
 import 'package:food_delivery/models/product_model.dart';
 import 'package:food_delivery/models/response_model.dart';
 import 'package:food_delivery/models/signup_body_model.dart';
+import 'package:food_delivery/models/suggestions_model.dart';
 import 'package:food_delivery/models/user_model.dart';
 import 'package:food_delivery/utils/utils.dart';
 import 'package:geocoding/geocoding.dart';
@@ -15,6 +16,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:google_maps_webservice/src/places.dart';
 
 part 'popular_product_controllers.dart';
 part 'recommended_product_controller.dart';

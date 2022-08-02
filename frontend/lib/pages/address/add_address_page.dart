@@ -22,26 +22,36 @@ class _AddAddressPageState extends State<AddAddressPage> {
   void initState() {
     super.initState();
     _isLogged = Get.find<AuthController>().userLoggedIn();
+
+
+    // log(Get.find<LocationController>().addressList.first.address);
+
     if (_isLogged && Get.find<UserController>().userModel == null) {
       Get.find<UserController>().getUserInfo();
     }
+
     if (Get.find<LocationController>().addressList.isNotEmpty) {
       if (Get.find<LocationController>().getUserAddressFromLocalStorage() ==
           '') {
         Get.find<LocationController>()
             .saveUserAddress(Get.find<LocationController>().addressList.last);
       }
+
       Get.find<LocationController>().getUserAddress();
+
       _cameraPosition = CameraPosition(
         target: LatLng(
           double.parse(Get.find<LocationController>().getAddress['latitude']),
           double.parse(Get.find<LocationController>().getAddress['longitude']),
         ),
       );
+
       _initialPosition = LatLng(
         double.parse(Get.find<LocationController>().getAddress['latitude']),
         double.parse(Get.find<LocationController>().getAddress['longitude']),
       );
+
+      // log(Get.find<LocationController>().getAddress.toString());
     }
   }
 
@@ -128,6 +138,9 @@ class _AddAddressPageState extends State<AddAddressPage> {
                                 _cameraPosition = position),
                             onMapCreated: (GoogleMapController mapController) {
                               controller.setMapController(mapController);
+                              if (Get.find<LocationController>()
+                                  .addressList
+                                  .isEmpty) {}
                             },
                           ),
                         ),

@@ -14,8 +14,10 @@ import 'package:geolocator_android/geolocator_android.dart';
 import 'package:shared_preferences_android/shared_preferences_android.dart';
 import 'package:geolocator_apple/geolocator_apple.dart';
 import 'package:shared_preferences_ios/shared_preferences_ios.dart';
+import 'package:package_info_plus_linux/package_info_plus_linux.dart';
 import 'package:shared_preferences_linux/shared_preferences_linux.dart';
 import 'package:shared_preferences_macos/shared_preferences_macos.dart';
+import 'package:package_info_plus_windows/package_info_plus_windows.dart';
 import 'package:shared_preferences_windows/shared_preferences_windows.dart';
 
 @pragma('vm:entry-point')
@@ -67,6 +69,16 @@ class _PluginRegistrant {
 
     } else if (Platform.isLinux) {
       try {
+        PackageInfoLinux.registerWith();
+      } catch (err) {
+        print(
+          '`package_info_plus_linux` threw an error: $err. '
+          'The app may not function as expected until you remove this plugin from pubspec.yaml'
+        );
+        rethrow;
+      }
+
+      try {
         SharedPreferencesLinux.registerWith();
       } catch (err) {
         print(
@@ -88,6 +100,16 @@ class _PluginRegistrant {
       }
 
     } else if (Platform.isWindows) {
+      try {
+        PackageInfoWindows.registerWith();
+      } catch (err) {
+        print(
+          '`package_info_plus_windows` threw an error: $err. '
+          'The app may not function as expected until you remove this plugin from pubspec.yaml'
+        );
+        rethrow;
+      }
+
       try {
         SharedPreferencesWindows.registerWith();
       } catch (err) {

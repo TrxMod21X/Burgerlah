@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/controllers/controllers.dart';
 import 'package:food_delivery/pages/pages.dart';
 import 'package:food_delivery/routes/routes.dart';
+import 'package:food_delivery/utils/utils.dart';
 import 'package:get/get.dart';
 import 'helpers/helpers.dart' as dep;
 
@@ -23,9 +24,13 @@ class MyApp extends StatelessWidget {
           builder: (_) {
             return GetMaterialApp(
               title: 'Food Market App',
+              debugShowCheckedModeBanner: false,
               defaultTransition: Transition.zoom,
               initialRoute: RouteHelper.getSplashPage(),
               getPages: RouteHelper.routes,
+              theme: ThemeData(
+                primaryColor: AppColors.mainColor,
+              ),
               // home: SignInPage(),
             );
           },
