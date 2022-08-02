@@ -39,7 +39,11 @@ class SearchLocationModal extends StatelessWidget {
                     ),
               ),
             ),
-            onSuggestionSelected: (suggestion) {},
+            onSuggestionSelected: (SuggestionModel suggestion) {
+              Get.find<LocationController>().setLocation(
+                  suggestion.locationId!, suggestion.label!, mapController);
+              Get.back();
+            },
             suggestionsCallback: (pattern) async {
               return await Get.find<LocationController>()
                   .searchLocation(context, pattern);

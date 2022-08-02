@@ -26,7 +26,8 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="food_delivery" >
+        android:label="food_delivery"
+        android:usesCleartextTraffic="true" >
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDiBbuIWkBA2KUyPNplqvP0VBflRUTleOo" />

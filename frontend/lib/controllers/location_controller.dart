@@ -90,6 +90,8 @@ class LocationController extends GetxController implements GetxService {
           fromAddress
               ? _placemark = Placemark(name: _address)
               : _pickPlacemark = Placemark(name: _address);
+        } else {
+          _changeAddress = true;
         }
       } catch (e) {
         log(e.toString());
@@ -112,7 +114,7 @@ class LocationController extends GetxController implements GetxService {
       _address = response.body['items'][0]['title'].toString();
       // print('printing address $_address');
     } else {
-      print('error getting the api');
+      log('location_controller.dart : error getting the api');
     }
     update();
     return _address;
@@ -150,7 +152,7 @@ class LocationController extends GetxController implements GetxService {
       // Save User Address
       await saveUserAddress(addressModel);
     } else {
-      print('couldn\'t save the address');
+      log('location_controller.dart: couldn\'t save the address');
       responseModel = ResponseModel(false, response.statusText!);
     }
 
@@ -244,5 +246,48 @@ class LocationController extends GetxController implements GetxService {
       }
     }
     return _predictionList;
+  }
+
+  setLocation(
+      String placeID, String address, GoogleMapController mapController) async {
+    _loading = true;
+    update();
+
+    PlacesDetailsModel details;
+
+    Response response = await locationRepo.setLocation(placeID);
+    details = PlacesDetailsModel.fromJson(response.body);
+
+    _pickPosition = Position(
+      latitude: details.response!.view!.first.result!.first.location!
+          .displayPosition!.latitude!,
+      longitude: details.response!.view!.first.result!.first.location!
+          .displayPosition!.longitude!,
+      timestamp: DateTime.now(),
+      accuracy: 1,
+      altitude: 1,
+      speed: 1,
+      speedAccuracy: 1,
+      heading: 1,
+    );
+    _pickPlacemark = Placemark(name: address);
+    _changeAddress = false;
+
+    mapController.animateCamera(
+      CameraUpdate.newCameraPosition(
+        CameraPosition(
+          target: LatLng(
+            details.response!.view!.first.result!.first.location!
+                .displayPosition!.latitude!,
+            details.response!.view!.first.result!.first.location!
+                .displayPosition!.longitude!,
+          ),
+          zoom: 17,
+        ),
+      ),
+    );
+
+    _loading = false;
+    update();
   }
 }

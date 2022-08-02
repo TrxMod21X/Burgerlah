@@ -8,6 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/base/base.dart';
 import 'package:food_delivery/controllers/controllers.dart';
 import 'package:food_delivery/models/cart_model.dart';
+import 'package:food_delivery/models/order_model.dart';
+import 'package:food_delivery/models/place_order_model.dart';
 import 'package:food_delivery/models/product_model.dart';
 import 'package:food_delivery/models/signup_body_model.dart';
 import 'package:food_delivery/routes/routes.dart';
@@ -18,6 +20,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 import '../models/address_model.dart';
 
@@ -40,3 +43,6 @@ part 'auth/sign_in_page.dart';
 
 part 'address/add_address_page.dart';
 part 'address/pick_address_map.dart';
+
+part 'payment/payment_page.dart';
+part 'payment/order_success_page.dart';

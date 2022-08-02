@@ -38,4 +38,9 @@ class LocationRepo {
     return await apiClient
         .getData('${AppConstant.searchLocationURI}?search_text=$text');
   }
+
+  Future<Response> setLocation(String placeId) async {
+    return await apiClient
+        .getData('${AppConstant.placeDetailsURI}?placeid=$placeId');
+  }
 }

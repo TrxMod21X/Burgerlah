@@ -23,7 +23,6 @@ class _AddAddressPageState extends State<AddAddressPage> {
     super.initState();
     _isLogged = Get.find<AuthController>().userLoggedIn();
 
-
     // log(Get.find<LocationController>().addressList.first.address);
 
     if (_isLogged && Get.find<UserController>().userModel == null) {

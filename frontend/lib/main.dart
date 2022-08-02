@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:food_delivery/controllers/controllers.dart';
-import 'package:food_delivery/pages/pages.dart';
 import 'package:food_delivery/routes/routes.dart';
 import 'package:food_delivery/utils/utils.dart';
 import 'package:get/get.dart';

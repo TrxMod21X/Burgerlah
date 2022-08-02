@@ -46,14 +46,14 @@ analysis_benchmark.json
 
 # Flutter/Dart/Pub related
 **/doc/api/
-.dart_tool/
-.flutter-plugins
-.flutter-plugins-dependencies
+frontend/.dart_tool/
+frontend/.flutter-plugins
+frontend/.flutter-plugins-dependencies
 **/generated_plugin_registrant.dart
 .packages
 .pub-cache/
 .pub/
-build/
+frontend/build/
 flutter_*.png
 linked_*.ds
 unlinked.ds
@@ -62,12 +62,12 @@ unlinked_spec.ds
 # Android related
 **/android/**/gradle-wrapper.jar
 .gradle/
-**/android/captures/
-**/android/gradlew
-**/android/gradlew.bat
-**/android/local.properties
-**/android/**/GeneratedPluginRegistrant.java
-**/android/key.properties
+frontend/**/android/captures/
+frontend/**/android/gradlew
+frontend/**/android/gradlew.bat
+frontend/**/android/local.properties
+frontend/**/android/**/GeneratedPluginRegistrant.java
+frontend/**/android/key.properties
 *.jks
 
 # iOS/XCode related

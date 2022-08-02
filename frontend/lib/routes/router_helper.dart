@@ -10,6 +10,8 @@ class RouteHelper {
   static const String signInPage = '/sign-in';
   static const String addAddress = '/add-address';
   static const String pickAddressMap = '/pick-address';
+  static const String payment = '/payment';
+  static const String orderSuccess = '/order-successful';
 
   static String getSplashPage() => splashPage;
 
@@ -28,6 +30,11 @@ class RouteHelper {
 
   static String getAddressPage() => '$addAddress';
   static String getPickAddressPage() => '$pickAddressMap';
+
+  static String getPaymentPage(String id, int userID) =>
+      '$payment?id=$id&userID=$userID';
+  static String getOrderSuccessPage(String orderID, String status) =>
+      '$orderSuccess?id=$orderID&status=$status';
 
   static List<GetPage> routes = [
     /// SPLASH PAGE
@@ -88,5 +95,25 @@ class RouteHelper {
           PickAddressMap _pickAddress = Get.arguments;
           return _pickAddress;
         }),
+
+    /// PAYMENT PAGE
+    GetPage(
+      name: payment,
+      page: () => PaymentPage(
+        orderModel: OrderModel(
+          id: int.parse(Get.parameters['id']!),
+          userId: int.parse(Get.parameters['userID']!),
+        ),
+      ),
+    ),
+
+    /// ORDER SUCCESS PAGE
+    GetPage(
+      name: orderSuccess,
+      page: () => OrderSuccessPage(
+        orderID: Get.parameters['id']!,
+        status: Get.parameters['status'].toString().contains('success') ? 1 : 0,
+      ),
+    ),
   ];
 }

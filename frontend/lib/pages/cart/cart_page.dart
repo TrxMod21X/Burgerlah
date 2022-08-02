@@ -190,7 +190,6 @@ class CartPage extends StatelessWidget {
                                               ],
                                             ),
                                           ),
-                                       
                                         ],
                                       ),
                                     ],
@@ -433,8 +432,27 @@ class CartPage extends StatelessWidget {
                               .addressList
                               .isEmpty) {
                             Get.toNamed(RouteHelper.getAddressPage());
-                          }else {
-                            Get.offNamed(RouteHelper.getInitial());
+                          } else {
+                            var location =
+                                Get.find<LocationController>().getUserAddress();
+                            var cart = Get.find<CartController>().getItems;
+                            var user = Get.find<UserController>().userModel;
+
+                            PlaceOrderModel placeOrder = PlaceOrderModel(
+                              cart: cart,
+                              orderAmount: 100.0,
+                              orderNote: 'Not about the food',
+                              address: location.address,
+                              latitude: location.latitude,
+                              longitude: location.longitude,
+                              contactPersonName: user!.name,
+                              contactPersonNumber: user.phone,
+                              scheduleAt: '',
+                              distance: 10.0,
+                            );
+
+                            Get.find<OrderController>()
+                                .placeOrder(placeOrder, _callback);
                           }
                         } else {
                           Get.toNamed(RouteHelper.getSignInPage());
@@ -464,5 +482,18 @@ class CartPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _callback(bool isSuccess, String message, String orderID) {
+    if (isSuccess) {
+      Get.offNamed(
+        RouteHelper.getPaymentPage(
+          orderID,
+          Get.find<UserController>().userModel!.id,
+        ),
+      );
+    } else {
+      showCustomMessage(message);
+    }
   }
 }

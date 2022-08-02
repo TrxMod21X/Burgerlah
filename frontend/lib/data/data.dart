@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:developer';
 
 import 'package:food_delivery/base/base.dart';
+import 'package:food_delivery/models/place_order_model.dart';
 import 'package:food_delivery/models/signup_body_model.dart';
 import 'package:food_delivery/routes/routes.dart';
 import 'package:food_delivery/utils/utils.dart';
@@ -21,3 +22,4 @@ part 'repository/cart_repo.dart';
 part 'repository/auth_repo.dart';
 part 'repository/user_repo.dart';
 part 'repository/location_repo.dart';
+part 'repository/order_repo.dart';
