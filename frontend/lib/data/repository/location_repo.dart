@@ -29,4 +29,13 @@ class LocationRepo {
     apiClient.updateHeader(sharedPreferences.getString(AppConstant.token)!);
     return await sharedPreferences.setString(AppConstant.userAddress, address);
   }
+
+  Future<Response> getZone(String lat, String lng) async {
+    return await apiClient.getData('${AppConstant.zoneURI}?lat=$lat&lng=$lng');
+  }
+
+  Future<Response> searchLocation(String text) async {
+    return await apiClient
+        .getData('${AppConstant.searchLocationURI}?search_text=$text');
+  }
 }
