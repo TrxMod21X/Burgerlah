@@ -58,7 +58,8 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                 : controller.popularProductList.length,
             position: _currPageValue!,
             decorator: DotsDecorator(
-              activeColor: Colors.orange,
+              activeColor: AppColors.primaryYellow,
+              color: AppColors.dotColor,
               size: const Size.square(9),
               activeSize: const Size(18, 9),
               activeShape: RoundedRectangleBorder(
@@ -115,7 +116,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                           decoration: BoxDecoration(
                             borderRadius:
                                 BorderRadius.circular(Dimensions.radius20),
-                            color: AppColors.mainBlackColor,
+                            color: AppColors.darkerDark,
                             image: DecorationImage(
                               fit: BoxFit.cover,
                               image: NetworkImage(
@@ -135,7 +136,7 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                                 bottomRight:
                                     Radius.circular(Dimensions.radius20),
                               ),
-                              color: Colors.black26,
+                              color: AppColors.darkerDark,
                             ),
                             child: Padding(
                               padding: EdgeInsets.only(
@@ -225,15 +226,18 @@ class _FoodPageBodyState extends State<FoodPageBody> {
       child: Stack(
         children: [
           GestureDetector(
-            onTap: () =>
-                Get.toNamed(RouteHelper.getPopularFood(position, 'home')),
+            onTap: () => Get.toNamed(RouteHelper.getPopularFood(
+              position,
+              'home',
+              popularProduct.stars!.toDouble(),
+            )),
             child: Container(
               height: Dimensions.pageViewContainer,
               margin: EdgeInsets.only(
                   left: Dimensions.width10, right: Dimensions.width10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Dimensions.radius30),
-                color: AppColors.mainBlackColor,
+                color: Colors.transparent,
                 image: DecorationImage(
                   fit: BoxFit.cover,
                   image: NetworkImage(
@@ -253,19 +257,19 @@ class _FoodPageBodyState extends State<FoodPageBody> {
               ),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(Dimensions.radius20),
-                color: AppColors.mainBlackColor,
+                color: AppColors.secondaryDark,
                 boxShadow: const [
                   BoxShadow(
-                    color: Colors.orange,
+                    color: AppColors.secondaryWhite,
                     blurRadius: 5,
                     offset: Offset(0, 5),
                   ),
                   BoxShadow(
-                    color: Colors.orange,
+                    color: AppColors.secondaryWhite,
                     offset: Offset(-5, 0),
                   ),
                   BoxShadow(
-                    color: Colors.orange,
+                    color: AppColors.secondaryWhite,
                     offset: Offset(5, 0),
                   )
                 ],
@@ -276,7 +280,10 @@ class _FoodPageBodyState extends State<FoodPageBody> {
                   left: Dimensions.width15,
                   right: Dimensions.width15,
                 ),
-                child: AppColumn(text: popularProduct.name!),
+                child: AppColumn(
+                  text: popularProduct.name!,
+                  rating: popularProduct.stars!.toDouble(),
+                ),
               ),
             ),
           ),

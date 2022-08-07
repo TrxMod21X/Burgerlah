@@ -44,25 +44,28 @@ class CartHistory extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: AppColors.mainBlackColor,
+      backgroundColor: AppColors.primaryDark,
       body: Column(
         children: [
           /// APP BAR
           Container(
-            color: Colors.orange,
+            color: AppColors.primaryWhite,
             width: double.maxFinite,
             height: Dimensions.height20 * 5,
             padding: EdgeInsets.only(top: Dimensions.height45),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                BigText(text: 'Cart History', color: Colors.white),
+                BigText(
+                  text: 'Cart History',
+                  color: AppColors.primaryDark,
+                ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () => Get.toNamed(RouteHelper.getCartPage()),
                   child: const AppIcon(
                     icon: Icons.shopping_cart_outlined,
-                    iconColor: Colors.orange,
-                    backgroundColor: AppColors.mainBlackColor,
+                    iconColor: AppColors.primaryWhite,
+                    backgroundColor: AppColors.primaryDark,
                   ),
                 ),
               ],
@@ -95,7 +98,7 @@ class CartHistory extends StatelessWidget {
                                     /// DATE ITEM
                                     timeWidget(listCounter),
                                     SizedBox(height: Dimensions.height10),
-                                    
+
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,

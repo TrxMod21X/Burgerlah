@@ -2,12 +2,14 @@ part of '../pages.dart';
 
 class PopularFoodDetail extends StatelessWidget {
   final int pageId;
+  final double rating;
   final String page;
 
   const PopularFoodDetail({
     Key? key,
     required this.pageId,
     required this.page,
+    required this.rating,
   }) : super(key: key);
 
   @override
@@ -19,7 +21,7 @@ class PopularFoodDetail extends StatelessWidget {
         .initProduct(product, Get.find<CartController>());
 
     return Scaffold(
-      backgroundColor: AppColors.mainBlackColor,
+      backgroundColor: AppColors.primaryDark,
       body: Stack(
         children: [
           /// BACKGROUND IMAGE
@@ -63,22 +65,29 @@ class PopularFoodDetail extends StatelessWidget {
                     return Stack(
                       children: [
                         GestureDetector(
-                            onTap: () {
-                              if (controller.totalItems >= 1) {
-                                Get.toNamed(RouteHelper.getCartPage());
-                              }
-                            },
-                            child: const AppIcon(
-                                icon: Icons.shopping_cart_outlined)),
+                          onTap: () {
+                            if (controller.totalItems >= 1) {
+                              Get.toNamed(RouteHelper.getCartPage());
+                            } else {
+                              showCustomMessage(
+                                'Keranjang anda kosong',
+                                title: 'Burgerlah',
+                                isError: false,
+                              );
+                            }
+                          },
+                          child:
+                              const AppIcon(icon: Icons.shopping_cart_outlined),
+                        ),
                         Get.find<PopularProductController>().totalItems >= 1
-                            ? const Positioned(
+                            ? Positioned(
                                 right: 0,
                                 top: 0,
                                 child: AppIcon(
                                   icon: Icons.circle,
-                                  size: 20,
+                                  size: Dimensions.width20,
                                   iconColor: Colors.transparent,
-                                  backgroundColor: AppColors.mainColor,
+                                  backgroundColor: AppColors.primaryDark,
                                 ),
                               )
                             : Container(),
@@ -90,8 +99,8 @@ class PopularFoodDetail extends StatelessWidget {
                                   text: Get.find<PopularProductController>()
                                       .totalItems
                                       .toString(),
-                                  size: 12,
-                                  color: Colors.white,
+                                  size: Dimensions.font12,
+                                  color: AppColors.primaryWhite,
                                 ),
                               )
                             : Container(),
@@ -115,7 +124,7 @@ class PopularFoodDetail extends StatelessWidget {
                   right: Dimensions.width20,
                   top: Dimensions.height20),
               decoration: BoxDecoration(
-                color: AppColors.mainBlackColor,
+                color: AppColors.secondaryDark,
                 borderRadius: BorderRadius.only(
                   topRight: Radius.circular(Dimensions.radius20),
                   topLeft: Radius.circular(Dimensions.radius20),
@@ -126,6 +135,7 @@ class PopularFoodDetail extends StatelessWidget {
                 children: [
                   AppColumn(
                     text: product.name!,
+                    rating: rating,
                     fontSize: Dimensions.font26,
                   ),
                   SizedBox(height: Dimensions.height20),

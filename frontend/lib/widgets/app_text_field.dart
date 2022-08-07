@@ -1,13 +1,13 @@
 part of 'widgets.dart';
 
 class AppTextField extends StatelessWidget {
-
   final String hint;
   final IconData icon;
   final bool obscureText;
   final TextInputType textInputType;
   final TextEditingController textController;
-  
+  final bool maxLines;
+
   const AppTextField({
     Key? key,
     required this.textController,
@@ -15,14 +15,14 @@ class AppTextField extends StatelessWidget {
     required this.icon,
     this.obscureText = false,
     this.textInputType = TextInputType.text,
+    this.maxLines = false,
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(
-          left: Dimensions.width20, right: Dimensions.width20),
+      margin:
+          EdgeInsets.only(left: Dimensions.width20, right: Dimensions.width20),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(Dimensions.radius15),
@@ -36,12 +36,13 @@ class AppTextField extends StatelessWidget {
         ],
       ),
       child: TextField(
+        maxLines: maxLines ? 3 : 1,
         keyboardType: textInputType,
         controller: textController,
         obscureText: obscureText,
         decoration: InputDecoration(
           hintText: hint,
-          prefixIcon:  Icon(
+          prefixIcon: Icon(
             icon,
             color: Colors.orange,
           ),

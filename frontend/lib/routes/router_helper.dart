@@ -17,10 +17,17 @@ class RouteHelper {
 
   static String getInitial() => initial;
 
-  static String getPopularFood(int pageId, String page) =>
-      '$popularFood?pageId=$pageId&page=$page';
+  static String getPopularFood(
+    int pageId,
+    String page,
+    double rating,
+  ) =>
+      '$popularFood?pageId=$pageId&page=$page&rating=$rating';
 
-  static String getRecommendedFood(int pageId, String page) =>
+  static String getRecommendedFood(
+    int pageId,
+    String page,
+  ) =>
       '$recommendedFood?pageId=$pageId&page=$page';
 
   static String getCartPage() => '$cartPage';
@@ -58,12 +65,18 @@ class RouteHelper {
 
     /// POPULAR FOOD PAGE
     GetPage(
-        name: popularFood,
-        page: () {
-          var pageId = Get.parameters['pageId'];
-          var page = Get.parameters['page'];
-          return PopularFoodDetail(pageId: int.parse(pageId!), page: page!);
-        }),
+      name: popularFood,
+      page: () {
+        var pageId = Get.parameters['pageId'];
+        var page = Get.parameters['page'];
+        var rating = Get.parameters['rating'];
+        return PopularFoodDetail(
+          pageId: int.parse(pageId!),
+          page: page!,
+          rating: double.parse(rating!),
+        );
+      },
+    ),
 
     /// RECOMMENDED FOOD PAGE
     GetPage(
@@ -78,7 +91,7 @@ class RouteHelper {
     GetPage(
         name: cartPage,
         page: () {
-          return CartPage();
+          return const CartPage();
         }),
 
     /// ADDRESS PAGE
@@ -110,7 +123,7 @@ class RouteHelper {
     /// ORDER SUCCESS PAGE
     GetPage(
       name: orderSuccess,
-      page: () => OrderSuccessPage(
+      page: () => PaymentSuccessPage(
         orderID: Get.parameters['id']!,
         status: Get.parameters['status'].toString().contains('success') ? 1 : 0,
       ),

@@ -21,6 +21,7 @@ import 'package:intl/intl.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 import '../models/address_model.dart';
 
@@ -45,4 +46,7 @@ part 'address/add_address_page.dart';
 part 'address/pick_address_map.dart';
 
 part 'payment/payment_page.dart';
-part 'payment/order_success_page.dart';
+part 'payment/payment_success_page.dart';
+
+part 'order/order_page.dart';
+part 'order/view_order.dart';

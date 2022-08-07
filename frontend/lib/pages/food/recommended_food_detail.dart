@@ -19,7 +19,7 @@ class RecommendedFoodDetail extends StatelessWidget {
         .initProduct(product, Get.find<CartController>());
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: AppColors.primaryDark,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -45,13 +45,14 @@ class RecommendedFoodDetail extends StatelessWidget {
                         return Stack(
                           children: [
                             GestureDetector(
-                                onTap: () {
-                                  if (controller.totalItems >= 1) {
-                                    Get.toNamed(RouteHelper.getCartPage());
-                                  }
-                                },
-                                child: const AppIcon(
-                                    icon: Icons.shopping_cart_outlined)),
+                              onTap: () {
+                                if (controller.totalItems >= 1) {
+                                  Get.toNamed(RouteHelper.getCartPage());
+                                }
+                              },
+                              child: const AppIcon(
+                                  icon: Icons.shopping_cart_outlined),
+                            ),
                             Get.find<PopularProductController>().totalItems >= 1
                                 ? const Positioned(
                                     right: 0,
@@ -60,7 +61,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                                       icon: Icons.circle,
                                       size: 20,
                                       iconColor: Colors.transparent,
-                                      backgroundColor: AppColors.mainColor,
+                                      backgroundColor: AppColors.secondaryDark,
                                     ),
                                   )
                                 : Container(),
@@ -92,7 +93,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                   bottom: Dimensions.height10,
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.white,
+                  color: AppColors.primaryDark,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(Dimensions.radius20),
                     topRight: Radius.circular(Dimensions.radius20),
@@ -107,7 +108,7 @@ class RecommendedFoodDetail extends StatelessWidget {
             ),
             expandedHeight: 300,
             pinned: true,
-            backgroundColor: AppColors.yellowColor,
+            backgroundColor: AppColors.secondaryDark,
             flexibleSpace: FlexibleSpaceBar(
               background: Image.network(
                 '${AppConstant.baseUrl}/uploads/${product.img!}',
@@ -117,15 +118,16 @@ class RecommendedFoodDetail extends StatelessWidget {
             ),
           ),
           SliverToBoxAdapter(
-              child: Column(
-            children: [
-              Container(
-                margin: EdgeInsets.only(
-                    left: Dimensions.width20, right: Dimensions.width20),
-                child: ExpandableText(text: product.description!),
-              ),
-            ],
-          )),
+            child: Column(
+              children: [
+                Container(
+                  margin: EdgeInsets.only(
+                      left: Dimensions.width20, right: Dimensions.width20),
+                  child: ExpandableText(text: product.description!),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
       bottomNavigationBar: GetBuilder<PopularProductController>(
@@ -146,22 +148,17 @@ class RecommendedFoodDetail extends StatelessWidget {
                     onTap: () => controller.setQuantity(false),
                     child: AppIcon(
                       icon: Icons.remove,
-                      backgroundColor: AppColors.mainColor,
-                      iconColor: Colors.white,
                       iconSize: Dimensions.icon24,
                     ),
                   ),
                   BigText(
                     text: 'Rp.${product.price!} X ${controller.inCartItems}',
-                    color: AppColors.mainBlackColor,
                     size: Dimensions.font26,
                   ),
                   GestureDetector(
                     onTap: () => controller.setQuantity(true),
                     child: AppIcon(
                       icon: Icons.add,
-                      backgroundColor: AppColors.mainColor,
-                      iconColor: Colors.white,
                       iconSize: Dimensions.icon24,
                     ),
                   ),
@@ -177,7 +174,7 @@ class RecommendedFoodDetail extends StatelessWidget {
                 right: Dimensions.width20,
               ),
               decoration: BoxDecoration(
-                color: AppColors.buttonBackgroundColor,
+                color: AppColors.primaryWhite,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(Dimensions.radius20 * 2),
                   topRight: Radius.circular(Dimensions.radius20 * 2),
@@ -194,12 +191,12 @@ class RecommendedFoodDetail extends StatelessWidget {
                       right: Dimensions.width20,
                     ),
                     decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: AppColors.primaryDark,
                       borderRadius: BorderRadius.circular(Dimensions.radius20),
                     ),
                     child: const Icon(
                       Icons.favorite,
-                      color: AppColors.mainColor,
+                      color: AppColors.primaryWhite,
                     ),
                   ),
                   GestureDetector(
@@ -214,11 +211,11 @@ class RecommendedFoodDetail extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius:
                             BorderRadius.circular(Dimensions.radius20),
-                        color: AppColors.mainColor,
+                        color: AppColors.primaryDark,
                       ),
                       child: BigText(
                         text: 'Rp.${product.price!} | Add to cart',
-                        color: Colors.white,
+                        color: AppColors.primaryWhite,
                       ),
                     ),
                   ),

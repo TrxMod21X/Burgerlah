@@ -116,6 +116,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_rating_bar",
+      "rootUri": "file:///home/trxmod21x/Documents/Development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_rating_bar-4.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.14"
+    },
+    {
+      "name": "flutter_slidable",
+      "rootUri": "file:///home/trxmod21x/Documents/Development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_slidable-1.3.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_test",
       "rootUri": "file:///home/trxmod21x/Documents/Development/flutter/packages/flutter_test",
       "packageUri": "lib/",
@@ -542,7 +554,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-08-02T14:26:16.663710Z",
+  "generated": "2022-08-04T03:51:51.570556Z",
   "generator": "pub",
   "generatorVersion": "2.16.0"
 }

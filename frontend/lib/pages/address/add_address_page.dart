@@ -60,9 +60,9 @@ class _AddAddressPageState extends State<AddAddressPage> {
       backgroundColor: AppColors.mainBlackColor,
 
       /// APPBAR
-      appBar: AppBar(
-        title: const Text('Address Page'),
-        backgroundColor: Colors.orange,
+      appBar: CustomAppBar(
+        title: 'My Address',
+        onBackPressed: () => Get.back(),
       ),
 
       /// BODY

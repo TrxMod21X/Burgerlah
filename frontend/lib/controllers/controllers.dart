@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:food_delivery/data/data.dart';
 import 'package:food_delivery/models/address_model.dart';
 import 'package:food_delivery/models/cart_model.dart';
+import 'package:food_delivery/models/order_model.dart';
 import 'package:food_delivery/models/place_order_model.dart';
 import 'package:food_delivery/models/places_details_model.dart';
 import 'package:food_delivery/models/product_model.dart';

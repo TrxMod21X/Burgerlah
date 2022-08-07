@@ -28,7 +28,7 @@ class NoDataPage extends StatelessWidget {
           style: TextStyle(
             fontSize: MediaQuery.of(context).size.height * 0.0175,
             // color: Theme.of(context).disabledColor,
-            color: Colors.white,
+            color: AppColors.primaryWhite,
           ),
         ),
       ],

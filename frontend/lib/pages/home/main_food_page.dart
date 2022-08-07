@@ -16,11 +16,11 @@ class _MainFoodPageState extends State<MainFoodPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.mainBlackColor,
+      backgroundColor: AppColors.primaryDark,
       body: LiquidPullToRefresh(
         onRefresh: _onRefresh,
-        backgroundColor: AppColors.mainBlackColor,
-        color: Colors.orange,
+        backgroundColor: AppColors.primaryDark,
+        color: AppColors.primaryWhite,
         child: Column(
           children: [
             /// HEADER
@@ -36,14 +36,14 @@ class _MainFoodPageState extends State<MainFoodPage> {
                     children: [
                       BigText(
                         text: 'Indonesia',
-                        color: AppColors.textColor,
+                        color: AppColors.primaryWhite,
                         size: Dimensions.font30,
                       ),
                       Row(
                         children: [
                           SmallText(
                             text: 'Banda Aceh',
-                            color: AppColors.textColor,
+                            color: AppColors.primaryWhite,
                           ),
                           const Icon(Icons.arrow_drop_down_rounded),
                         ],
@@ -56,13 +56,13 @@ class _MainFoodPageState extends State<MainFoodPage> {
                       height: Dimensions.height45,
                       child: Icon(
                         Icons.search,
-                        color: AppColors.mainBlackColor,
+                        color: AppColors.primaryDark,
                         size: Dimensions.icon24,
                       ),
                       decoration: BoxDecoration(
                         borderRadius:
                             BorderRadius.circular(Dimensions.radius15),
-                        color: Colors.orange,
+                        color: AppColors.primaryWhite,
                       ),
                     ),
                   )

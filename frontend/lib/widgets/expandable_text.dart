@@ -22,6 +22,8 @@ class _ExpandableTextState extends State<ExpandableText> {
 
   @override
   void initState() {
+    log('${widget.text.length}');
+    log('$textHeight');
     super.initState();
     if (widget.text.length > textHeight) {
       firstHalf = widget.text.substring(0, textHeight.toInt());
@@ -31,6 +33,8 @@ class _ExpandableTextState extends State<ExpandableText> {
       firstHalf = widget.text;
       secondHalf = '';
     }
+    log(firstHalf);
+    log(secondHalf);
   }
 
   @override
@@ -45,13 +49,17 @@ class _ExpandableTextState extends State<ExpandableText> {
             )
           : Column(
               children: [
+                // Text(
+                //   hiddenText ? ('$firstHalf ....') : ('$firstHalf $secondHalf'),
+                // ),
                 SmallText(
                   text: hiddenText
                       ? (firstHalf + '...')
                       : (firstHalf + secondHalf),
                   size: Dimensions.font16,
                   color: AppColors.paraColor,
-                  height: 1.8,
+                  height: 1.5,
+                  overflow: TextOverflow.visible,
                 ),
                 InkWell(
                   onTap: () {
@@ -63,13 +71,13 @@ class _ExpandableTextState extends State<ExpandableText> {
                     children: [
                       SmallText(
                         text: hiddenText ? 'Show more...' : 'Show less...',
-                        color: AppColors.mainColor,
+                        color: AppColors.primaryYellow,
                       ),
                       Icon(
                         hiddenText
                             ? Icons.arrow_drop_down
                             : Icons.arrow_drop_up,
-                        color: AppColors.mainColor,
+                        color: AppColors.primaryYellow,
                       )
                     ],
                   ),

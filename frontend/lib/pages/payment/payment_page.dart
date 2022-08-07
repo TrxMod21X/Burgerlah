@@ -24,7 +24,6 @@ class _PaymentPageState extends State<PaymentPage> {
     selectedUrl =
         '${AppConstant.baseUrl}/payment-mobile?customer_id=${widget.orderModel.userId}&order_id=${widget.orderModel.id}';
     log('payment_page.dart: $selectedUrl');
-    //selectedUrl="https://mvs.bslmeiyu.com";
     // if (Platform.isAndroid) WebView.platform = SurfaceAndroidWebView();
   }
 
@@ -43,7 +42,7 @@ class _PaymentPageState extends State<PaymentPage> {
           backgroundColor: AppColors.mainColor,
         ),
         body: Center(
-          child: Container(
+          child: SizedBox(
             width: Dimensions.screenWidth,
             child: Stack(
               children: [

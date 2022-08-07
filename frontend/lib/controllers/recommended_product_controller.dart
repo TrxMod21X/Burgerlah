@@ -12,7 +12,8 @@ class RecommendedProductController extends GetxController {
   bool get isLoaded => _isLoaded;
 
   Future<void> getRecommendedProductList() async {
-    Response response = await recommendedProductRepo.getRecommendedProductList();
+    Response response =
+        await recommendedProductRepo.getRecommendedProductList();
 
     if (response.statusCode == 200) {
       _recommendedProductList = [];
@@ -20,5 +21,15 @@ class RecommendedProductController extends GetxController {
       _isLoaded = true;
       update();
     } else {}
+  }
+
+  int isRecommendedProduct(String cartName) {
+    List<String?> recommended = _recommendedProductList.map((e) {
+      if (e.name == cartName) {
+        return e.name;
+      }
+    }).toList();
+
+    return recommended.indexOf(cartName);
   }
 }

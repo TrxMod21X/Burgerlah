@@ -25,10 +25,10 @@ class PopularProductController extends GetxController {
     if (response.statusCode == 200) {
       _popularProductList = [];
       _popularProductList.addAll(Product.fromJson(response.body).products);
+
       _isLoaded = true;
       update();
-    } else {
-    }
+    } else {}
   }
 
   void setQuantity(bool isIncrement) {
@@ -39,6 +39,17 @@ class PopularProductController extends GetxController {
     }
     update();
   }
+
+  int isPopularProduct(String cartName) {
+    List<String?> popular = _popularProductList.map((e) {
+      if (e.name == cartName) {
+        return e.name;
+      }
+    }).toList();
+
+    return popular.indexOf(cartName);
+  }
+
 
   int checkQuantity(int quantity) {
     if ((_inCartItems + quantity) < 0) {

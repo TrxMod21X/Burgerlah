@@ -12,27 +12,16 @@ class ProfilePage extends StatelessWidget {
     }
 
     return Scaffold(
-      backgroundColor: AppColors.mainBlackColor,
+      backgroundColor: AppColors.primaryDark,
 
       /// APP BAR
-      appBar: _userLoggedIn
-          ? AppBar(
-              backgroundColor: Colors.orange,
-              title: BigText(
-                text: 'Profile',
-                size: Dimensions.font12 * 2,
-                color: Colors.white,
-              ),
-            )
-          : null,
+      appBar: _userLoggedIn ? const CustomAppBar(title: 'My Profile') : null,
 
       /// BODY
       body: GetBuilder<UserController>(builder: (controller) {
         return _userLoggedIn
             ? (!controller.isLoading
-                ? Center(
-                    child: LoadingAnimationWidget.beat(
-                        color: AppColors.mainColor, size: 50))
+                ? const CustomLoader()
                 : Container(
                     width: double.maxFinite,
                     margin: EdgeInsets.only(top: Dimensions.height20),
@@ -41,10 +30,10 @@ class ProfilePage extends StatelessWidget {
                         /// PROFILE IMAGE
                         AppIcon(
                           icon: Icons.person,
-                          iconColor: AppColors.mainBlackColor,
+                          iconColor: AppColors.primaryDark,
                           iconSize: Dimensions.icon15 * 5,
                           size: Dimensions.width10 * 15,
-                          backgroundColor: Colors.orange,
+                          backgroundColor: AppColors.primaryWhite,
                         ),
                         SizedBox(height: Dimensions.height30),
                         Expanded(
@@ -55,13 +44,15 @@ class ProfilePage extends StatelessWidget {
                                 ProfileWidgets(
                                   appIcon: AppIcon(
                                     icon: Icons.person,
-                                    iconColor: Colors.orange,
+                                    iconColor: AppColors.primaryYellow,
                                     iconSize: Dimensions.height10 * 5 / 2,
                                     size: Dimensions.width10 * 5,
-                                    backgroundColor: AppColors.mainBlackColor,
+                                    backgroundColor: AppColors.primaryDark,
                                   ),
-                                  bigText:
-                                      BigText(text: controller.userModel!.name),
+                                  bigText: BigText(
+                                    text: controller.userModel!.name,
+                                    color: AppColors.primaryDark,
+                                  ),
                                 ),
                                 SizedBox(height: Dimensions.height20),
 
@@ -69,13 +60,15 @@ class ProfilePage extends StatelessWidget {
                                 ProfileWidgets(
                                   appIcon: AppIcon(
                                     icon: Icons.phone,
-                                    iconColor: Colors.white,
+                                    iconColor: AppColors.primaryYellow,
                                     iconSize: Dimensions.height10 * 5 / 2,
                                     size: Dimensions.width10 * 5,
-                                    backgroundColor: AppColors.yellowColor,
+                                    backgroundColor: AppColors.primaryDark,
                                   ),
                                   bigText: BigText(
-                                      text: controller.userModel!.phone),
+                                    text: controller.userModel!.phone,
+                                    color: AppColors.primaryDark,
+                                  ),
                                 ),
                                 SizedBox(height: Dimensions.height20),
 
@@ -83,13 +76,14 @@ class ProfilePage extends StatelessWidget {
                                 ProfileWidgets(
                                   appIcon: AppIcon(
                                     icon: Icons.email,
-                                    iconColor: Colors.white,
+                                    iconColor: AppColors.primaryYellow,
                                     iconSize: Dimensions.height10 * 5 / 2,
                                     size: Dimensions.width10 * 5,
-                                    backgroundColor: AppColors.yellowColor,
+                                    backgroundColor: AppColors.primaryDark,
                                   ),
                                   bigText: BigText(
                                     text: controller.userModel!.email,
+                                    color: AppColors.primaryDark,
                                   ),
                                 ),
                                 SizedBox(height: Dimensions.height20),
@@ -107,14 +101,15 @@ class ProfilePage extends StatelessWidget {
                                       child: ProfileWidgets(
                                         appIcon: AppIcon(
                                           icon: Icons.location_on,
-                                          iconColor: Colors.white,
+                                          iconColor: AppColors.primaryYellow,
                                           iconSize: Dimensions.height10 * 5 / 2,
                                           size: Dimensions.width10 * 5,
                                           backgroundColor:
-                                              AppColors.yellowColor,
+                                              AppColors.primaryDark,
                                         ),
                                         bigText: BigText(
                                           text: 'Fill in your address',
+                                          color: AppColors.primaryDark,
                                         ),
                                       ),
                                     );
@@ -127,14 +122,15 @@ class ProfilePage extends StatelessWidget {
                                       child: ProfileWidgets(
                                         appIcon: AppIcon(
                                           icon: Icons.location_on,
-                                          iconColor: Colors.white,
+                                          iconColor: AppColors.primaryYellow,
                                           iconSize: Dimensions.height10 * 5 / 2,
                                           size: Dimensions.width10 * 5,
                                           backgroundColor:
-                                              AppColors.yellowColor,
+                                              AppColors.primaryDark,
                                         ),
                                         bigText: BigText(
                                           text: 'Your address',
+                                          color: AppColors.primaryDark,
                                         ),
                                       ),
                                     );
@@ -146,13 +142,14 @@ class ProfilePage extends StatelessWidget {
                                 ProfileWidgets(
                                   appIcon: AppIcon(
                                     icon: Icons.message,
-                                    iconColor: Colors.white,
+                                    iconColor: AppColors.primaryYellow,
                                     iconSize: Dimensions.height10 * 5 / 2,
                                     size: Dimensions.width10 * 5,
-                                    backgroundColor: AppColors.yellowColor,
+                                    backgroundColor: AppColors.primaryDark,
                                   ),
                                   bigText: BigText(
                                     text: 'Messages',
+                                    color: AppColors.primaryDark,
                                   ),
                                 ),
                                 SizedBox(height: Dimensions.height20),
@@ -175,12 +172,15 @@ class ProfilePage extends StatelessWidget {
                                   child: ProfileWidgets(
                                     appIcon: AppIcon(
                                       icon: Icons.logout,
-                                      iconColor: Colors.white,
+                                      iconColor: AppColors.primaryYellow,
                                       iconSize: Dimensions.height10 * 5 / 2,
                                       size: Dimensions.width10 * 5,
-                                      backgroundColor: Colors.redAccent,
+                                      backgroundColor: AppColors.primaryDark,
                                     ),
-                                    bigText: BigText(text: 'Logout'),
+                                    bigText: BigText(
+                                      text: 'Logout',
+                                      color: AppColors.primaryDark,
+                                    ),
                                   ),
                                 ),
                                 SizedBox(height: Dimensions.height20),

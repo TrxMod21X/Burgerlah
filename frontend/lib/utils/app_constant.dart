@@ -32,6 +32,7 @@ class AppConstant {
 
   /// ORDER
   static const String placeOrderURI = '/api/v1/customer/order/place';
+  static const String orderListURI = '/api/v1/customer/order/list';
 
   static const String token = '';
   static const String email = '';

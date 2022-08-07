@@ -12,8 +12,7 @@ class _HomePageState extends State<HomePage> {
 
   List pages = [
     const MainFoodPage(),
-    // const Center(child: Text('next page')),
-    const SignInPage(),
+    const OrderPage(),
     const CartHistory(),
     const ProfilePage(),
   ];
@@ -29,7 +28,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.orange,
+        selectedItemColor: AppColors.primaryYellow,
         unselectedItemColor: Colors.grey,
         showSelectedLabels: false,
         showUnselectedLabels: false,
@@ -39,22 +38,22 @@ class _HomePageState extends State<HomePage> {
         onTap: onTopNav,
         items: const [
           BottomNavigationBarItem(
-            backgroundColor: Colors.black87,
+            backgroundColor: AppColors.secondaryDark,
             icon: Icon(Icons.home_outlined),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            backgroundColor: Colors.black87,
+            backgroundColor: AppColors.secondaryDark,
             icon: Icon(Icons.archive),
             label: 'History',
           ),
           BottomNavigationBarItem(
-            backgroundColor: Colors.black87,
+            backgroundColor: AppColors.secondaryDark,
             icon: Icon(Icons.shopping_cart),
             label: 'Cart',
           ),
           BottomNavigationBarItem(
-            backgroundColor: Colors.black87,
+            backgroundColor: AppColors.secondaryDark,
             icon: Icon(Icons.person),
             label: 'Me',
           ),
