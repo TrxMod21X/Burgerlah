@@ -102,7 +102,7 @@ class OrderController extends Controller
 
         return response()->json([
             'errors' => [
-                ['code' => 'order_time', 'message' => trans('messages.failed_to_place_order')]
+                ['code' => 'order_time', 'message' => 'testR']
             ]
         ], 403);
     }
