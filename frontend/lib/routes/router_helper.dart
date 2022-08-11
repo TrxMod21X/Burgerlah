@@ -40,8 +40,10 @@ class RouteHelper {
 
   static String getPaymentPage(String id, int userID) =>
       '$payment?id=$id&userID=$userID';
+  
   static String getOrderSuccessPage(String orderID, String status) =>
       '$orderSuccess?id=$orderID&status=$status';
+
 
   static List<GetPage> routes = [
     /// SPLASH PAGE
