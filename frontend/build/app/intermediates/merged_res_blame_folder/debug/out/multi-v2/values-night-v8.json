@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/trxmod21x/Documents/TrxMod21X/Trx-Self-Projects/food_delivery/flutter-shopping-app/Burgerlah/frontend/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "outputFile": "/home/trxmod21x/Documents/TrxMod21X/Trx-Self-Projects/Burgerlah/frontend/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/home/trxmod21x/Documents/TrxMod21X/Trx-Self-Projects/food_delivery/flutter-shopping-app/Burgerlah/frontend/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/home/trxmod21x/Documents/TrxMod21X/Trx-Self-Projects/Burgerlah/frontend/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

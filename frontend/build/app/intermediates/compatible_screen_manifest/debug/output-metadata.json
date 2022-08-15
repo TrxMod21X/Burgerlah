@@ -4,7 +4,7 @@
     "type": "COMPATIBLE_SCREEN_MANIFEST",
     "kind": "Directory"
   },
-  "applicationId": "com.example.food_delivery",
+  "applicationId": "com.trx21.burgerlah",
   "variantName": "debug",
   "elements": []
 }

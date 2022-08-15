@@ -141,7 +141,7 @@ class ProfilePage extends StatelessWidget {
                                 /// PROFILE MESSAGES
                                 ProfileWidgets(
                                   appIcon: AppIcon(
-                                    icon: Icons.message,
+                                    icon: Icons.notifications_active,
                                     iconColor: AppColors.primaryYellow,
                                     iconSize: Dimensions.height10 * 5 / 2,
                                     size: Dimensions.width10 * 5,

@@ -1,13 +1,13 @@
 part of 'utils.dart';
 
 class AppConstant {
-  static const String appName = 'Food Market App';
+  static const String appName = 'Burgerlah';
   static const int appVersion = 1;
 
   /// BASE URL
-  // static const String baseUrl = 'https://aceh-foodmarket-app.masuk.id';
-  static const String baseUrl =
-      'https://f314-2001-448a-11ad-17a5-d38e-c81e-537-ec9.ap.ngrok.io';
+  static const String baseUrl = 'https://burgerlah.trx21.my.id';
+  // static const String baseUrl =
+  //     'https://f314-2001-448a-11ad-17a5-d38e-c81e-537-ec9.ap.ngrok.io';
   // static const String baseUrl = 'http://127.0.0.1:8000';
 
   /// PRODUCTS ENDPOINT

@@ -1,4 +1,4 @@
-com.example.food_delivery
+com.trx21.burgerlah
 attr activityAction
 attr activityName
 attr alpha

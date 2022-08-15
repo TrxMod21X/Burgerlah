@@ -458,7 +458,7 @@ class CartPage extends StatelessWidget {
                                       Get.find<CartController>().getItems;
                                   var user =
                                       Get.find<UserController>().userModel;
-                                  log('');
+                                  // log('');
 
                                   PlaceOrderModel placeOrder = PlaceOrderModel(
                                     cart: cart,

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.food_delivery"
+    package="com.trx21.burgerlah"
     android:versionCode="1"
     android:versionName="1.0.0" >
 
@@ -26,14 +26,14 @@
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="food_delivery"
+        android:label="Burgerlah"
         android:usesCleartextTraffic="true" >
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyDiBbuIWkBA2KUyPNplqvP0VBflRUTleOo" />
 
         <activity
-            android:name="com.example.food_delivery.MainActivity"
+            android:name="com.trx21.burgerlah.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:exported="true"
             android:hardwareAccelerated="true"

@@ -40,6 +40,7 @@ class AppColumn extends StatelessWidget {
               allowHalfRating: false,
               unratedColor: AppColors.dotColor,
               itemSize: Dimensions.icon15,
+              ignoreGestures: true,
               itemBuilder: (context, _) => const Icon(
                 Icons.star,
                 color: AppColors.primaryYellow,

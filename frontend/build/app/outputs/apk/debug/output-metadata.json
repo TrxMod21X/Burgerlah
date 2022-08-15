@@ -4,7 +4,7 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.example.food_delivery",
+  "applicationId": "com.trx21.burgerlah",
   "variantName": "processDebugResources",
   "elements": [
     {

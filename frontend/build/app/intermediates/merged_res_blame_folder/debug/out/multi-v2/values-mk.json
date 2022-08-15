@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/home/trxmod21x/Documents/TrxMod21X/Trx-Self-Projects/food_delivery/flutter-shopping-app/Burgerlah/frontend/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-mk/values-mk.xml",
+            "outputFile": "/home/trxmod21x/Documents/TrxMod21X/Trx-Self-Projects/Burgerlah/frontend/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-mk/values-mk.xml",
             "map": [
                 {
                     "source": "/home/trxmod21x/.gradle/caches/transforms-2/files-2.1/a7975ba3cb0c3630bd14453686890431/jetified-play-services-basement-17.0.0/res/values-mk/values.xml",
